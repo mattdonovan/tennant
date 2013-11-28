@@ -1,21 +1,21 @@
-%h1 Listing posts
-
-%table
-  %tr
-    %th Name
-    %th Content
-    %th
-    %th
-    %th
-
+.col-sm-12
+  %h1 List of renters
+  
   - @posts.each do |post|
-    %tr
-      %td= post.name
-      %td= post.content
-      %td= link_to 'Show', post
-      %td= link_to 'Edit', edit_post_path(post)
-      %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Post', new_post_path
+    .row
+      .col-sm-4
+        .name= post.name
+      .col-sm-6
+        .content= post.content
+    .row
+      .col-sm-2
+        .show-link= link_to 'Show', post
+      .col-sm-2
+        .edit-link= link_to 'Edit', edit_post_path(post)
+      .col-sm-2
+        .destroy-link= link_to 'Destroy', post, method: :delete, data: {  confirm: 'Are you sure?' }
+  
+  .row
+    .col-sm-12
+      = link_to 'New Post', new_post_path, {:class => 'btn btn-primary'}
+  
