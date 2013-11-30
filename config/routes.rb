@@ -1,4 +1,6 @@
 Tennant::Application.routes.draw do
+  devise_for :customers
+
   resources :posts
   root to: 'posts#index'
 
